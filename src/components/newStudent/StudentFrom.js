@@ -4,22 +4,37 @@ import dateFormatting from "../../utils/dateUtils";
 
 function StudentForm(props){
 
-    console.log("Student form is rendered");
-
     const [name, setName] = useState("");
+    const [chosenCourse, setChosenCourse] = useState("");
     const [courseDate, setCourseDate] = useState("");
 
     const handleNameInput = (event) => {
-        setName(event.target.value)
+        setName(event.target.value);
     }
 
     const handleCourseSelection = (event) => {
         setCourseDate(dateFormatting(props.courses[event.target.value].startDate));
+        setChosenCourse(event.target.value);
     }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const student = {
+            studentName: name,
+            course: chosenCourse
+        }
+
+        console.log(student);
+        props.register(student);
+        props.cancel();
+    }
+
+
 
     return(
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="new-registration__control">
                     <label>Student name</label>
                     <input 
@@ -46,7 +61,7 @@ function StudentForm(props){
                 </div>
                 <br/><br/>
                 <div className="new-registration__actions">
-                    <button type="button">Cancel</button>
+                    <button type="button" onClick={props.cancel}>Cancel</button>
                     <button type="submit">Register Student</button>
                 </div>
             </form>

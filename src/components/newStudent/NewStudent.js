@@ -10,9 +10,13 @@ function NewStudent(props){
         setIsEditing(true);
     }
 
+    const handleCancel = () => {
+        setIsEditing(false);
+    }
+
     return(
         <div className="new-registration">
-            {isEditing ? <StudentForm courses={props.courses}/> : <button onClick={handleRegister}>Register Student</button>}
+            {isEditing ? <StudentForm courses={props.courses} cancel={handleCancel} register={props.register}/> : <button onClick={handleRegister}>Register Student</button>}
         </div>
     )
 }

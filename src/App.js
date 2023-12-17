@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import './App.css';
 import NewStudent from './components/newStudent/NewStudent';
+import List from './components/registered/List';
 
-function App(){
-
+  //mock data
   const AVAILABLE_COURSES = {
     fullstack: {
         id: '1',
@@ -63,10 +64,20 @@ function App(){
     },
   ];
 
+function App(){
+
+  const [registeredStudents, setRegisteredStudents] = useState(DUMMY_REGISTERED_STUDENTS)
+
+  const handleRegistration = (student) => {
+    setRegisteredStudents( (prev) => {
+      return [student,...prev]
+    })
+  }
 
   return(
     <div>
-      <NewStudent courses={AVAILABLE_COURSES}/>
+      <NewStudent courses={AVAILABLE_COURSES} register={handleRegistration}/>
+      <List students={registeredStudents}/>
     </div>
   )
 }
