@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import NewStudent from './components/newStudent/NewStudent';
-import List from './components/registered/List';
+import Registration from './components/registered/Registration';
 
   //mock data
   const AVAILABLE_COURSES = {
@@ -77,7 +77,7 @@ function App(){
   return(
     <div>
       <NewStudent courses={AVAILABLE_COURSES} register={handleRegistration}/>
-      <List students={registeredStudents}/>
+      <Registration courses={AVAILABLE_COURSES} students={registeredStudents}/>
     </div>
   )
 }
