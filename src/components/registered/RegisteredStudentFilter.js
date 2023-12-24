@@ -12,9 +12,9 @@ function RegisteredStudentFilter(props){
             <div className="registrations-filter__control">
                 <label>Filter by Course Name</label>
                 <select onChange={handleSelect}>
-                    {Object.keys(props.courses).map( (course) => {
+                    {Object.keys(props.courses).map( (course, index) => {
                         return(
-                            <option value={course}>{props.courses[course].displayName}</option>
+                            <option value={course} key={index}>{props.courses[course].displayName}</option>
                         )
                     })}
                 </select>

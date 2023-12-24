@@ -5,17 +5,17 @@ import Registration from './components/registered/Registration';
 
   //mock data
   const AVAILABLE_COURSES = {
+    qa: {
+      id: '2',
+      name: 'qa',
+      displayName: 'QA Course',
+      startDate: new Date(2023, 2, 20)
+    },
     fullstack: {
         id: '1',
         name: 'fullstack',
         displayName: 'Fullstack Course',
         startDate: new Date(2023, 7, 14)
-    },
-    qa: {
-        id: '2',
-        name: 'qa',
-        displayName: 'QA Course',
-        startDate: new Date(2023, 2, 20)
     },
     cyber: {
         id: '3',

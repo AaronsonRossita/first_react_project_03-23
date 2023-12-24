@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Registration.css"
 import RegisteredStudentList from "./RegisteredStudentList";
 import RegisteredStudentFilter from "./RegisteredStudentFilter";
+import RegisteredStudentChart from "./RegisteredStudentChart";
 
 function Registration(props){
 
@@ -17,7 +18,7 @@ function Registration(props){
 
     return(
         <div className="registrations card">
-            <h3>chart will be here</h3>
+            <RegisteredStudentChart courses={props.courses} students={props.students}/>
             <RegisteredStudentFilter courses={props.courses} onChangeFilter={handleFilter}/>
             <RegisteredStudentList students={filteredStudentList} courses={props.courses}/>
         </div>
